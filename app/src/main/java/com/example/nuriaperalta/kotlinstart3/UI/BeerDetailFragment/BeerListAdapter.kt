@@ -1,57 +1,32 @@
 package com.example.nuriaperalta.kotlinstart3.UI.BeerDetailFragment
 
-import android.content.Intent
-import android.provider.ContactsContract
-import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.nuriaperalta.kotlinstart3.Client.Model.Beer
 import com.example.nuriaperalta.kotlinstart3.R
-import kotlinx.android.synthetic.main.beer_list_row.view.*
 
-class BeerListAdapter(private val photos: ArrayList<ContactsContract.Contacts.Photo>)  : RecyclerView.Adapter<BeerListAdapter.PhotoHolder>()  {
+class BeerListAdapter(val beerList: ArrayList<Beer>)  : RecyclerView.Adapter<BeerListAdapter.ViewHolder>()  {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BeerListAdapter.PhotoHolder {
-        val inflatedView = parent.inflate(R.layout.beer_list_row, false)
-        return PhotoHolder(inflatedView)
+    override fun onBindViewHolder(viewGroup: ViewHolder, position: Int) {
+        val beer : Beer = beerList[position]
+        viewGroup?.textViewName?.text = beer.name
+        viewGroup?.textViewKind?.text = beer.kind
     }
 
-    override fun getItemCount() = photos.size
-
-    override fun onBindViewHolder(holder: BeerListAdapter.PhotoHolder, position: Int) {
-        val itemPhoto = photos[position]
-        holder.bindPhoto(itemPhoto)
+    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
+        val view = LayoutInflater.from(viewGroup?.context).inflate(R.layout.beer_list_row, viewGroup, false)
+        return ViewHolder(view)
     }
 
-    //Holder of the recyclerView
-    class PhotoHolder(v: View) : RecyclerView.ViewHolder(v), View.OnClickListener {
+    override fun getItemCount(): Int {
+        return beerList.size
+    }
 
-        private var view: View = v
-        private var photo: ContactsContract.Contacts.Photo? = null
-
-
-        init {
-            v.setOnClickListener(this)
-        }
-
-
-        override fun onClick(v: View) {
-            Log.d("RecyclerView", "CLICK!")
-            val context = itemView.context
-            val showPhotoIntent = Intent(context, PhotoActivity::class.java)
-            showPhotoIntent.putExtra(PHOTO_KEY, photo)
-            context.startActivity(showPhotoIntent)
-        }
-
-        companion object {
-            private val PHOTO_KEY = "PHOTO"
-        }
-
-        fun bindPhoto(photo: ContactsContract.Contacts.Photo) {
-            this.photo = photo
-            Picasso.with(view.context).load(photo.url).into(view.itemImage)
-            view.itemDate.text = photo.humanDate
-            view.itemDescription.text = photo.explanation
-        }
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val textViewName = itemView.findViewById(R.id.beer_name_row) as TextView
+        val textViewKind = itemView.findViewById(R.id.beer_kind_row) as TextView
     }
 }
