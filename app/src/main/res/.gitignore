@@ -1,0 +1,11 @@
+build/
+local.properties
+keystore.properties
+.gradle/
+.idea/
+.idea/misc.xml
+//*.iml
+.DS_Store
+KotlinStart3.iml
+*.iml
+*.apk
