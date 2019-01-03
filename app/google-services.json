@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "976696093296",
+    "firebase_url": "https://beer-825c6.firebaseio.com",
+    "project_id": "beer-825c6",
+    "storage_bucket": "beer-825c6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:976696093296:android:9447c3340d8567e0",
+        "android_client_info": {
+          "package_name": "com.example.nuriaperalta.kotlinstart3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "976696093296-q6c38ekk9u2odq581eb7t3qksk4nc9th.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.nuriaperalta.kotlinstart3",
+            "certificate_hash": "09e826c12704addef1a5890fd232bee5d1bf65a5"
+          }
+        },
+        {
+          "client_id": "976696093296-agcr9712ajch95tjs3go5uo39ph5i56h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCa_8COoJTKnoS90XQVpbi7badWMcAdiuU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "976696093296-agcr9712ajch95tjs3go5uo39ph5i56h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

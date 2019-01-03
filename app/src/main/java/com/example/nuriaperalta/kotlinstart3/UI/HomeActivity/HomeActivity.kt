@@ -1,16 +1,13 @@
-package com.example.nuriaperalta.kotlinstart3.UI
+package com.example.nuriaperalta.kotlinstart3.UI.HomeActivity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.example.nuriaperalta.kotlinstart3.R
 import com.example.nuriaperalta.kotlinstart3.UI.BeerDetailFragment.BeerListFragment
 
-class MainActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
