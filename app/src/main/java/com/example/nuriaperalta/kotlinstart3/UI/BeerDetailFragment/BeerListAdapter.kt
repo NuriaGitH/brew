@@ -3,30 +3,33 @@ package com.example.nuriaperalta.kotlinstart3.UI.BeerDetailFragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nuriaperalta.kotlinstart3.Client.Model.Beer
 import com.example.nuriaperalta.kotlinstart3.R
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.beer_list_row.view.*
 
-class BeerListAdapter(val beerList: ArrayList<Beer>)  : RecyclerView.Adapter<BeerListAdapter.ViewHolder>()  {
-
-    override fun onBindViewHolder(viewGroup: ViewHolder, position: Int) {
-        val beer : Beer = beerList[position]
-        viewGroup?.textViewName?.text = beer.name
-        viewGroup?.textViewKind?.text = beer.kind
-    }
-
-    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(viewGroup?.context).inflate(R.layout.beer_list_row, viewGroup, false)
-        return ViewHolder(view)
-    }
+class BeerListAdapter(val beerList: Beer) : RecyclerView.Adapter<CustomViewHolder>()  {
 
     override fun getItemCount(): Int {
-        return beerList.size
+        return beerList.videos.count()
     }
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val textViewName = itemView.findViewById(R.id.beer_name_row) as TextView
-        val textViewKind = itemView.findViewById(R.id.beer_kind_row) as TextView
+    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): CustomViewHolder {
+        val view = LayoutInflater.from(viewGroup?.context)
+                .inflate(R.layout.beer_list_row, viewGroup, false)
+        return CustomViewHolder(view)
     }
+
+    override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
+        val beer = beerList.videos.get(position)
+        holder?.view?.beer_name_row?.text = beer.name
+
+        val beerImageView = holder?.view?.beer_image_row
+        val imageUrl = beerList.videos.get(position).imageUrl
+        Picasso.get().load(imageUrl).into(beerImageView)
+    }
+
 }
+
+class CustomViewHolder(val view: View): RecyclerView.ViewHolder(view){}
