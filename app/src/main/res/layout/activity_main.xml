@@ -21,12 +21,47 @@
         app:backgroundTint="@color/colorPrimaryDark"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/fab_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_hops"
         app:maxImageSize="41dp"
         app:backgroundTint="@color/colorPrimary"
         app:layout_anchor="@id/bar"/>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_hops"
+        android:layout_gravity="center"
+        android:layout_marginTop="500dp"
+        android:layout_marginRight="100dp"
+        android:visibility="visible"
+        app:fabSize="mini"
+        app:maxImageSize="41dp"
+        app:backgroundTint="@color/colorPrimary"/>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_hops"
+        android:layout_gravity="center"
+        android:visibility="visible"
+        android:layout_marginTop="455dp"
+        app:fabSize="mini"
+        app:maxImageSize="41dp"
+        app:backgroundTint="@color/colorPrimary"/>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_hops"
+        android:layout_gravity="center"
+        android:visibility="visible"
+        android:layout_marginTop="500dp"
+        android:layout_marginLeft="100dp"
+        app:fabSize="mini"
+        app:maxImageSize="41dp"
+        app:backgroundTint="@color/colorPrimary"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
