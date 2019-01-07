@@ -1,4 +1,4 @@
-package com.example.nuriaperalta.kotlinstart3.UI.BeerDetailFragment
+package com.example.nuriaperalta.kotlinstart3.UI.BeerListScreen
 
 import android.view.LayoutInflater
 import android.view.View

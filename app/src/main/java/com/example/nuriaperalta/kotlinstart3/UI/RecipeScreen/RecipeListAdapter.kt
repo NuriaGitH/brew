@@ -1,4 +1,4 @@
-package com.example.nuriaperalta.kotlinstart3.UI.BeerDetailFragment
+package com.example.nuriaperalta.kotlinstart3.UI.RecipeScreen
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +9,7 @@ import com.example.nuriaperalta.kotlinstart3.R
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.beer_list_row.view.*
 
-class BeerListAdapter(val beerList: Beer) : RecyclerView.Adapter<CustomViewHolder>()  {
+class RecipeListAdapter(val beerList: Beer) : RecyclerView.Adapter<CustomViewHolder>()  {
 
     override fun getItemCount(): Int {
         return beerList.videos.count()
@@ -17,14 +17,11 @@ class BeerListAdapter(val beerList: Beer) : RecyclerView.Adapter<CustomViewHolde
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): CustomViewHolder {
         val view = LayoutInflater.from(viewGroup?.context)
-                .inflate(R.layout.beer_list_row, viewGroup, false)
+                .inflate(R.layout.recipe_list_row, viewGroup, false)
         return CustomViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
-        val beer = beerList.videos.get(position)
-        holder?.view?.beer_name_row?.text = beer.name
-
         val beerImageView = holder?.view?.beer_image_row
         val imageUrl = beerList.videos.get(position).imageUrl
         Picasso.get().load(imageUrl).into(beerImageView)
@@ -32,4 +29,4 @@ class BeerListAdapter(val beerList: Beer) : RecyclerView.Adapter<CustomViewHolde
 
 }
 
-class CustomViewHolder(val view: View): RecyclerView.ViewHolder(view){}
+class CustomViewHolder(val view: View): RecyclerView.ViewHolder(view)

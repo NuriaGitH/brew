@@ -6,13 +6,18 @@ import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.example.nuriaperalta.kotlinstart3.R
-import com.example.nuriaperalta.kotlinstart3.UI.BeerDetailFragment.BeerListFragment
+import com.example.nuriaperalta.kotlinstart3.UI.BeerListScreen.BeerListFragment
+import com.example.nuriaperalta.kotlinstart3.UI.RecipeScreen.RecipeListFragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class HomeActivity : AppCompatActivity() {
+    //TODO solucionar error que aparece en el logcat E/RecyclerView: No adapter attached; skipping layout
+    //Solucion en https://stackoverflow.com/questions/29141729/recyclerview-no-adapter-attached-skipping-layout
+    //TODO Pasar a MVP
 
     lateinit var fabMain: FloatingActionButton
     lateinit var fab1: FloatingActionButton
@@ -34,7 +39,7 @@ class HomeActivity : AppCompatActivity() {
 
         //Mostrar fragment en el id se pone el frame layout para cargar el fragment dentro
         supportFragmentManager.inTransaction {
-            add(R.id.frame, BeerListFragment())
+            add(R.id.frame, RecipeListFragment())
         }
 
         fabMain = findViewById(R.id.fab_main)
@@ -47,11 +52,6 @@ class HomeActivity : AppCompatActivity() {
 
         setFavMenuListeners()
 
-    }
-
-    //Método que que se utiliza para poder instanciar después los fragments con mucho menos código
-    inline fun FragmentManager.inTransaction(func: FragmentTransaction.() -> FragmentTransaction) {
-        beginTransaction().func().commit()
     }
 
     @SuppressLint("RestrictedApi")
@@ -81,7 +81,21 @@ class HomeActivity : AppCompatActivity() {
             }
         }
         fab1.setOnClickListener {
-            
+            //Using replace to change Fragment correctly
+            supportFragmentManager.inTransaction {
+                replace(R.id.frame, BeerListFragment())
+            }
         }
+        fab2.setOnClickListener {
+            //Using replace to change Fragment correctly
+            supportFragmentManager.inTransaction {
+                replace(R.id.frame, RecipeListFragment())
+            }
+        }
+    }
+
+    //Método que que se utiliza para poder instanciar después los fragments con mucho menos código
+    inline fun FragmentManager.inTransaction(func: FragmentTransaction.() -> FragmentTransaction) {
+        beginTransaction().func().commit()
     }
 }
